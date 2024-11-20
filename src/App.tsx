@@ -1,11 +1,12 @@
 import React from 'react'
+import { Button } from './components/ui/button'
 
 const App = () => {
   return (
     <div>
-      Hello world!
+      hello world!
     </div>
   )
 }
 
-export default App
+export default App;
