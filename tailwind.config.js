@@ -52,8 +52,14 @@ export default {
   				'3': 'hsl(var(--chart-3))',
   				'4': 'hsl(var(--chart-4))',
   				'5': 'hsl(var(--chart-5))'
-  			}
-  		}
+  			},
+			textSoft: '#6c7f93',
+  		},
+		fontFamily: {
+			main: 'Lato, sans-serif',
+			main2: 'Inter, sans-serif',
+			main3: 'Nunito Sans, sans-serif',
+		}
   	}
   },
   plugins: [require("tailwindcss-animate")],
