@@ -6,7 +6,7 @@ import { Outlet } from "react-router-dom";
 const Layout = () => {
   return (
     <div className="h-screen flex font-main overflow-hidden">
-      <div className="w-[200px]">
+      <div className="w-[200px] sticky top-0 z-20">
         <Sidebar />
       </div>
       <div className="grow overflow-y-auto">

@@ -48,7 +48,7 @@ const Sidebar = () => {
   ]
 
   return (
-    <div className='bg-white p-4 font-main3 w-full border-r border-gray-100 h-screen'>
+    <div className='bg-white p-4 font-main3 w-full border-r border-gray-100 h-screen sticky top-0 z-20'>
       <div className='flex flex-col gap-4 h-full'>
         <div className='font-extrabold flex gap-2 items-center'>
           <SquareActivity className='text-green-600' size={'40px'}/>
