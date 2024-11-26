@@ -36,7 +36,7 @@ return (
         <Line 
             type="monotone" 
             dataKey="Patient In" 
-            stroke="#22c55e"
+            stroke="#facc15"
             activeDot={{ r: 8 }} 
             dot={false}
             strokeWidth={2} 
@@ -44,7 +44,7 @@ return (
         <Line 
             type="monotone" 
             dataKey="Patient Out" 
-            stroke="#eab308"
+            stroke="#22c55e"
             dot={false}
             strokeWidth={2} 
             />

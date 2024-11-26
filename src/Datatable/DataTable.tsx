@@ -18,18 +18,28 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+
 import React from "react";
 import { Input } from "@/components/ui/input";
 import { List } from "lucide-react";
+import { Link } from "react-router-dom";
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
   data: TData[];
+  title: string;
+  showIcon?: boolean;
 }
 
-export function DataTable<TData, TValue>({
+interface Identifiable {
+  id: string;
+}
+
+export function DataTable<TData extends Identifiable, TValue>({
   columns,
   data,
+  title,
+  showIcon,
 }: DataTableProps<TData, TValue>) {
   const [sorting, setSorting] = React.useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
@@ -53,56 +63,57 @@ export function DataTable<TData, TValue>({
   return (
     <div>
       <div className="flex justify-between gap-2">
-        <div className="flex gap-2 items-center px-4">
-          <p className="border border-green-500 rounded-lg p-1">
-            <List className="text-green-500" strokeWidth={2.75} />
-          </p>
-          <span className="text-sm font-bold">Patient List</span>
+        {!showIcon && (
+          <div className="flex gap-2 items-center px-4 ssm:px-2">
+            <p className="border border-green-500 rounded-lg p-1">
+              <List className="text-green-500" strokeWidth={2.75} />
+            </p>
+            <span className="text-sm font-bold">{title}</span>
+          </div>
+        )}
+        <div className="flex items-center py-4">
+          <Input
+            placeholder="Filter by email..."
+            value={(table.getColumn("email")?.getFilterValue() as string) ?? ""}
+            onChange={(event) =>
+              table.getColumn("email")?.setFilterValue(event.target.value)
+            }
+            className="max-w-sm"
+          />
         </div>
-      <div className="flex items-center py-4">
-        <Input
-          placeholder="Filter..."
-          value={(table.getColumn("email" || "name" || "age" || "gender")?.getFilterValue() as string) ?? ""}
-          onChange={(event) =>
-            table.getColumn("email")?.setFilterValue(event.target.value)
-          }
-          className="max-w-sm"
-        />
-      </div>
       </div>
       <div className="rounded-md border-b">
         <Table>
           <TableHeader className="bg-slate-100">
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow key={headerGroup.id}>
-                {headerGroup.headers.map((header) => {
-                  return (
-                    <TableHead key={header.id} className="font-bold">
-                      {header.isPlaceholder
-                        ? null
-                        : flexRender(
-                            header.column.columnDef.header,
-                            header.getContext()
-                          )}
-                    </TableHead>
-                  );
-                })}
+                {headerGroup.headers.map((header) => (
+                  <TableHead key={header.id} className="font-bold">
+                    {header.isPlaceholder
+                      ? null
+                      : flexRender(
+                          header.column.columnDef.header,
+                          header.getContext()
+                        )}
+                  </TableHead>
+                ))}
               </TableRow>
             ))}
           </TableHeader>
           <TableBody>
             {table.getRowModel().rows?.length ? (
               table.getRowModel().rows.map((row) => (
-                <TableRow
-                  key={row.id}
-                  data-state={row.getIsSelected() && "selected"}
-                >
+                <TableRow key={row.id}>
                   {row.getVisibleCells().map((cell) => (
-                    <TableCell key={cell.id} className="font-bold">
-                      {flexRender(
-                        cell.column.columnDef.cell,
-                        cell.getContext()
-                      )}
+                    <TableCell key={cell.id} className="font-bold cursor-pointer">
+                      <Link
+                        to={`/patient/${(row.original.id)}`}
+                      >
+                        {flexRender(
+                          cell.column.columnDef.cell,
+                          cell.getContext()
+                        )}
+                      </Link>
                     </TableCell>
                   ))}
                 </TableRow>

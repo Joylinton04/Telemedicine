@@ -67,6 +67,10 @@
   }
 }
 
+* {
+  overscroll-behavior: none;
+}
+
 body {
   min-height: 100vh;
   width: 100%;
@@ -87,4 +91,8 @@ body {
 
 .recharts-cartesian-axis-tick {
   font-size: 12px;
+}
+
+.active {
+  background-color: #f1f5f9;
 }
