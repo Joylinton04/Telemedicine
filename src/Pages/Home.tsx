@@ -20,7 +20,7 @@ const Home = () => {
 
         {/* grid system */}
         <div className='gridlayout mt-6 mdd:grid-cols-4'>
-            <div className='box bg-white flex flex-col justify-between mdd:col-span-2 ssm:col-span-4'>
+            <div className='box bg-white flex flex-col justify-between mdd:col-span-2 ssm:col-span-4 shadow-sm'>
                 <div className='flex gap-2 items-center'>
                   <p className='border border-green-400 rounded-lg p-1'><UserPlus strokeWidth={3} size={'20px'} className='text-green-500'/></p>
                   <span className='text-sm font-bold'>Patient Record</span>
@@ -53,7 +53,7 @@ const Home = () => {
                   </div>
                 </div>
             </div>
-            <div className='box bg-white flex flex-col gap-6 mdd:col-span-2 mdd:hidden'>
+            <div className='box bg-white flex flex-col gap-6 mdd:col-span-2 mdd:hidden shadow-sm'>
                 <div className='flex gap-2 items-center'>
                   <p className='border border-green-400 rounded-lg p-1'><UserPlus strokeWidth={3} size={'20px'} className='text-green-500'/></p>
                   <span className='text-sm font-bold'>Total Patients</span>
@@ -72,7 +72,7 @@ const Home = () => {
                   </div>
                 </div>
             </div>
-            <div className='box bg-white flex flex-col gap-6 mdd:col-span-2 ssm:col-span-4'>
+            <div className='box bg-white flex flex-col gap-6 mdd:col-span-2 ssm:col-span-4 shadow-sm'>
                 <div className='flex gap-2 items-center'>
                   <p className='border border-purple-500 rounded-lg p-1'><MapPinned size={20} strokeWidth={3} className='text-purple-600'/></p>
                   <span className='text-sm font-bold'>New Appointment</span>
@@ -91,7 +91,7 @@ const Home = () => {
                   </div>
                 </div>
             </div>
-            <div className='box col-span-2 row-span-2 w-full h-full bg-white flex flex-col gap-4 mdd:col-span-4 ssm:col-span-5'>
+            <div className='box col-span-2 row-span-2 w-full h-full bg-white flex flex-col gap-4 mdd:col-span-4 ssm:col-span-5 shadow-sm'>
                 <div className='flex gap-2 items-center'>
                   <p className='border border-green-500 rounded-lg p-1'><ChartNoAxesColumn size={20} strokeWidth={5} className='text-green-500'/></p>
                   <span className='text-sm font-bold'>Patient Statistics</span>
@@ -100,7 +100,7 @@ const Home = () => {
                   <ArrivalChart/>
                 </div>
             </div>
-            <div className='box row-span-2 w-full h-full bg-white flex flex-col gap-8 mdd:col-span-4'>
+            <div className='box row-span-2 w-full h-full bg-white flex flex-col gap-8 mdd:col-span-4 shadow-sm'>
                 <div className='flex gap-2 items-center'>
                   <p className='border border-green-500 rounded-lg p-1'><DollarSign size={20} strokeWidth={2.75} className='text-green-500'/></p>
                   <span className='text-sm font-bold'>Financial Flow</span>
@@ -137,7 +137,7 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-            <div className='box col-span-3 row-span-2 w-full h-full bg-white mdd:row-[4] mdd:col-span-4 ssm:row-[3]'>
+            <div className='box col-span-3 row-span-2 w-full h-full bg-white mdd:row-[4] mdd:col-span-4 ssm:row-[3] shadow-sm'>
               <div className="container mx-auto p-2 -mt-3 ssm:p-1">
                 <DataTable columns={columns} data={data.slice(0,6)} title="Patients List"/>
               </div>

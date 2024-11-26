@@ -33,18 +33,18 @@ const Sidebar = () => {
         {
           title: "Dashboard",
           path: "/",
-          icon: <Home size={"20px"} />,
+          icon: <Home size={"20px"}/>,
         },
         {
           title: "Appointments",
           path: "/appointments",
           icon: <MapPinned size={"20px"} />,
         },
-        {
-          title: "Patients",
-          path: "/patients",
-          icon: <Users size={"20px"} />,
-        },
+        // {
+        //   title: "Patients",
+        //   path: "/patients",
+        //   icon: <Users size={"20px"} />,
+        // },
         {
           title: "Financial",
           path: "/financial",
@@ -62,7 +62,7 @@ const Sidebar = () => {
         },
         {
           title: "Settings",
-          path: "/settings",
+          path: "/",
           icon: <Settings size={"20px"} />,
         },
       ],
@@ -103,7 +103,7 @@ const Sidebar = () => {
                 {menu.items.map((link) => (
                   <NavLink
                     to={link.path}
-                    className="flex items-center gap-2 hover:bg-slate-100 py-3 px-4 rounded"
+                    className="flex items-center gap-2 hover:bg-[#dbeafe] hover:text-blue-600 py-3 px-4 rounded"
                     key={link.title}
                   >
                     {link.icon}
@@ -124,7 +124,8 @@ const Sidebar = () => {
 
       {/* Bottom Navigation Menu */}
       <div
-        className={` bg-white ssm:fixed bottom-0 left-0 w-full h-max z-50 sm:hidden ${showMenu ? "opacity-0" : "opacity-100"} duration-500`}
+        className={`fixed bottom-0 left-0 w-full bg-white z-50 shadow-lg border-t border-gray-200 ssm:fixed sm:hidden 
+          ${showMenu ? "translate-y-full opacity-0" : "translate-y-0 opacity-100"} duration-500`}
       >
         <div className="flex gap-4 w-full justify-center">
           {menu &&
@@ -134,9 +135,10 @@ const Sidebar = () => {
                   <NavLink
                     key={option.title}
                     to={option.path}
-                    className="flex gap-1 py-4 px-2 hover:bg-bgsoft hover:scale-110 duration-300 rounded cursor-pointer items-center"
+                    className="flex flex-col gap-1 py-4 px-2 hover:bg-bgsoft hover:scale-110 duration-300 rounded cursor-pointer items-center"
                   >
-                    {option.icon}
+                  <div className="text-lg">{option.icon}</div>
+                  <span className="text-xs font-medium">{option.title}</span>
                   </NavLink>
                 ))}
               </div>

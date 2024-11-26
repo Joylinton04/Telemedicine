@@ -94,5 +94,6 @@ body {
 }
 
 .active {
-  background-color: #f1f5f9;
+  background-color: #dbeafe;
+  color: #2563eb;
 }

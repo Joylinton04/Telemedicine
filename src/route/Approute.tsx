@@ -1,5 +1,7 @@
 import Layout from "@/Layout/Layout";
 import Appointments from "@/Pages/Appointments";
+import DoctorProfile from "@/Pages/DoctorProfile";
+import Financial from "@/Pages/Financial";
 import Home from "@/Pages/Home";
 import Patient from "@/Pages/Patient";
 import { createBrowserRouter } from "react-router-dom";
@@ -22,6 +24,14 @@ const Approute = createBrowserRouter(
         {
           path: "/patient/:id",
           element: <Patient />,
+        },
+        {
+          path: "profile",
+          element: <DoctorProfile />,
+        },
+        {
+          path: "financial",
+          element: <Financial />,
         },
       ],
     },
