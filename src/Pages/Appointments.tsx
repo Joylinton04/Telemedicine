@@ -5,7 +5,7 @@ import { DataTable } from "@/Datatable/DataTable";
 
 const Appointments = () => {
   return (
-    <div className='p-4 pb-4 grow h-[calc(100vh-70px)] overflow-auto'>
+    <div className='p-4 pb-4 overflow-auto'>
         <div className="h-full">
             <div className='flex flex-col gap-1'>
               <div className='font-bold text-2xl font-main3 ssm:text-lg'>View All Your Appointments</div>

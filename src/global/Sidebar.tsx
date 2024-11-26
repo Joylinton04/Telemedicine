@@ -19,7 +19,7 @@ const Sidebar = () => {
   const { scrollY } = useScroll();
 
   useEffect(() => {
-    if (scrollY >= 30) {
+    if (scrollY >= 20) {
       setShowMenu(true);
     } else {
       setShowMenu(false);

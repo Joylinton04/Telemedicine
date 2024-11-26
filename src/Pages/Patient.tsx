@@ -27,11 +27,11 @@ const Patient = () => {
     setShowAlert(true);
     setTimeout(() => {
       setShowAlert(false);
-    }, 3000);
+    }, 2500);
   };
 
   return (
-    <div className="p-6 h-[calc(100vh-70px)] overflow-auto bg-gray-50 ssm:h-screen">
+    <div className="p-6 sm:h-[calc(100vh-70px)] overflow-auto bg-gray-50">
       {/* Main Container */}
       <div className="flex gap-6">
         {/* Sidebar */}
@@ -59,16 +59,16 @@ const Patient = () => {
             >
               Initiate a Chat
             </button>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
           </div>
         </div>
 
@@ -76,12 +76,12 @@ const Patient = () => {
         <div className="flex flex-col gap-6 grow">
           {/* Status and Details */}
           <div className="flex justify-between items-center bg-white p-4 shadow-md rounded-lg">
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-4 ssm:justify-between">
               <HeartPulse size={40} className="text-red-500" />
               <Activity size={40} className="text-blue-500" />
               <Droplet size={40} className="text-green-500" />
             </div>
-            <div>
+            <div className="ssm:hidden">
               <span className="font-bold text-gray-700 text-lg">
                 Patient Status:{" "}
               </span>
@@ -90,25 +90,30 @@ const Patient = () => {
           </div>
 
           {/* Appointment Details */}
-          <div className="bg-white p-6 shadow-md rounded-lg">
+          <div className="bg-white p-6 shadow-md rounded-lg flex flex-col">
             <h2 className="text-xl font-bold mb-4">Appointment Details</h2>
             <div className="text-gray-600">
-              <p>- Patient scheduled this appointment to seek counselling.</p>
-              <div className="mt-4">
+              <p className="ssm:text-sm">- Patient scheduled this appointment to seek counselling.</p>
+              <div className="mt-2">
                 <p>
-                  <strong>Doctor:</strong> Dr. Adu Atakora
+                  <strong>Doctor:</strong> <span className="ssm:text-xs">Dr. Adu Atakora</span>
                 </p>
                 <p>
-                  <strong>Date:</strong> 12th December, 2024
+                  <strong>Date:</strong> <span className="ssm:text-xs">12th October, 2024</span>
                 </p>
                 <p>
-                  <strong>Time:</strong> 1hr 30mins
+                  <strong>Time:</strong> <span className="ssm:text-xs">1hr 30mins</span>
                 </p>
                 <p>
-                  <strong>Status:</strong> Approved
+                  <strong>Status:</strong> <span className="ssm:text-xs">Approved</span>
                 </p>
               </div>
             </div>
+            <h2 className="text-xl font-bold mt-4">Upcoming Appointments</h2>
+            <ul className="list-disc list-inside text-gray-700 mt-4 ssm:text-sm">
+              <li>Dr. Mensah - General Checkup on 20th November, 2024</li>
+              <li>Dr. Boateng - Physiotherapy on 5th December, 2024</li>
+            </ul>
           </div>
 
           {/* Health Status */}
@@ -136,6 +141,35 @@ const Patient = () => {
             </div>
           </div>
 
+          {/*Vital signs history  */}
+          <div className="bg-white p-6 shadow-md rounded-lg">
+            <h2 className="text-xl font-bold mb-4">Vital Signs History</h2>
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="border-b text-left text-gray-700 ssm:text-xs">
+                  <th>Date</th>
+                  <th>Blood Pressure</th>
+                  <th>Heart Rate</th>
+                  <th>Weight</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td className="ssm:text-xs ssm:px-1">01/11/2024</td>
+                  <td className="ssm:text-xs ssm:px-1">140/90 mmHg</td>
+                  <td className="ssm:text-xs ssm:px-1">72 bpm</td>
+                  <td className="ssm:text-xs ssm:px-1">68 kg</td>
+                </tr>
+                <tr>
+                  <td className="ssm:text-xs ssm:px-1">25/10/2024</td>
+                  <td className="ssm:text-xs ssm:px-1">135/85 mmHg</td>
+                  <td className="ssm:text-xs ssm:px-1">75 bpm</td>
+                  <td className="ssm:text-xs ssm:px-1">70 kg</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
           {/* Medical History */}
           <div className="bg-white p-6 shadow-md rounded-lg">
             <h2 className="text-xl font-bold mb-4">Medical History</h2>
@@ -151,6 +185,47 @@ const Patient = () => {
               No active or past prescriptions
             </p>
           </div>
+
+          <div className="bg-white p-6 shadow-md rounded-lg">
+            <h2 className="text-xl font-bold mb-4">Upload Prescriptions</h2>
+            <div className="flex flex-col gap-4">
+              <input
+                type="file"
+                className="block w-full border border-gray-300 rounded-lg p-2"
+                accept=".pdf, .jpg, .png"
+              />
+              <button className="px-4 py-2 bg-blue-500 text-white rounded-lg shadow hover:bg-blue-600">
+                Upload
+              </button>
+            </div>
+          </div>
+
+          <div className="bg-white p-6 shadow-md rounded-lg">
+            <h2 className="text-xl font-bold mb-4">Emergency Contacts</h2>
+            <ul className="text-gray-700 flex gap-12">
+              <li>
+                <strong>Name:</strong> John Mensah
+                <br />
+                <strong>Relation:</strong> Father
+                <br />
+                <strong>Phone:</strong> +233 543576794
+              </li>
+              <li>
+                <strong>Name:</strong> Mary Mensah
+                <br />
+                <strong>Relation:</strong> Mother
+                <br />
+                <strong>Phone:</strong> +233 543576794
+              </li>
+            </ul>
+          </div>
+
+          <div className="bg-white p-6 shadow-md rounded-lg">
+            <h2 className="text-xl font-bold mb-4">Download Reports</h2>
+            <button className="px-6 py-2 bg-purple-500 text-white rounded-lg shadow hover:bg-purple-600">
+              Download Health Report
+            </button>
+          </div>
         </div>
       </div>
 
@@ -161,7 +236,7 @@ const Patient = () => {
       showAlert ? "translate-x-0" : "translate-x-[150%]"
     }`}
       >
-        <div className="flex items-center px-6 py-4">
+        <div className="flex items-center px-6 py-4 ssm:px-4">
           <div className="mr-4 flex items-center justify-center bg-white text-blue-500 w-10 h-10 rounded-full shadow-md">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -178,8 +253,8 @@ const Patient = () => {
             </svg>
           </div>
           <div className="flex-1">
-            <h2 className="font-bold text-lg">Notice</h2>
-            <p className="text-sm">Patient is currently unavailable</p>
+            <h2 className="font-bold text-lg ssm:text-base">Notice</h2>
+            <p className="text-sm ssm:text-xs">Patient is currently unavailable</p>
           </div>
           <button
             onClick={() => setShowAlert(false)}
