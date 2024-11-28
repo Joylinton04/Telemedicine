@@ -31,7 +31,7 @@ const Patient = () => {
   };
 
   return (
-    <div className="p-6 sm:h-[calc(100vh-70px)] overflow-auto bg-gray-50">
+    <div className="p-6 sm:h-[calc(100vh-70px)] overflow-auto ">
       {/* Main Container */}
       <div className="flex gap-6 mt-4">
         {/* Sidebar */}
