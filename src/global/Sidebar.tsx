@@ -2,6 +2,7 @@ import { Input } from "@/components/ui/input";
 import {
   BadgeDollarSign,
   Home,
+  LogOut,
   MapPinned,
   Search,
   Settings,
@@ -69,9 +70,9 @@ const Sidebar = () => {
       <div
         className={`w-[200px] bg-gradient-to-b from-blue-100 to-white p-4 font-main3 border-r border-gray-100 h-screen sticky z-50 top-0 ${
           hidden && "w-max"
-        } ssm:hidden`}
+        } ssm:hidden overflow-hidden`}
       >
-        <div className="flex flex-col gap-4 h-screen">
+        <div className="flex flex-col gap-4 h-screen relative">
           {/* Logo */}
           <div
             className="font-extrabold flex gap-2 items-center cursor-pointer"
@@ -96,11 +97,15 @@ const Sidebar = () => {
           <div className="flex flex-col gap-6 mt-4">
             {menu.map((menu) => (
               <div className={`flex flex-col gap-2`} key={menu.title}>
-                <h1 className="font-semibold text-gray-600 whitespace-nowrap">{menu.title}</h1>
+                <h1 className="font-semibold text-gray-600 whitespace-nowrap">
+                  {menu.title}
+                </h1>
                 {menu.items.map((link) => (
                   <NavLink
                     to={link.path}
-                    className={`flex items-center gap-2 py-3 px-4 rounded-lg bg-white hover:bg-gradient-to-r from-blue-100 to-blue-50 hover:shadow-md text-gray-700 hover:text-blue-600 duration-300 ${hidden && 'w-max'}`}
+                    className={`flex items-center gap-2 py-3 px-4 rounded-lg bg-white hover:bg-gradient-to-r from-blue-100 to-blue-50 hover:shadow-md text-gray-700 hover:text-blue-600 duration-300 ${
+                      hidden && "w-max"
+                    }`}
                     key={link.title}
                   >
                     {link.icon}
@@ -116,13 +121,31 @@ const Sidebar = () => {
               </div>
             ))}
           </div>
+
+          <div className="absolute bottom-16">
+            <NavLink
+              to={"/settings"}
+              className={`flex items-center gap-2 py-3 px-4 rounded-lg shadow-lg hover:bg-gradient-to-r to-blue-20 hover:shadow-md text-gray-700 hover:text-blue-600 duration-300 bg-gradient-to-r from-blue-300 to-blue-20 ${
+                hidden && "w-max"
+              }`}
+            >
+              <LogOut size={"20px"} className="text-red-500" />
+              <span className={`font-medium text-[15px] ${hidden && "hidden"}`}>
+                logout
+              </span>
+            </NavLink>
+          </div>
         </div>
       </div>
 
       {/* Bottom Navigation Menu */}
       <div
         className={`fixed bottom-0 left-0 w-full bg-gradient-to-b from-white to-blue-50 z-50 shadow-lg border-t border-gray-200 sm:hidden 
-          ${showMenu ? "translate-y-full opacity-0" : "translate-y-0 opacity-100"} duration-500`}
+          ${
+            showMenu
+              ? "translate-y-full opacity-0"
+              : "translate-y-0 opacity-100"
+          } duration-500`}
       >
         <div className="flex gap-4 w-full justify-center">
           {menu &&

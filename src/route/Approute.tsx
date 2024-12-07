@@ -3,11 +3,27 @@ import Appointments from "@/Pages/Appointments";
 import DoctorProfile from "@/Pages/DoctorProfile";
 import Financial from "@/Pages/Financial";
 import Home from "@/Pages/Home";
+import LandingPage from "@/Pages/LandingPage";
+import Login from "@/Pages/Login";
 import Patient from "@/Pages/Patient";
+import Register from "@/Pages/Register";
+import Settings from "@/Pages/Settings";
 import { createBrowserRouter } from "react-router-dom";
 
 const Approute = createBrowserRouter(
   [
+    {
+      path: "/landingpage",
+      element: <LandingPage />,
+    },
+    {
+      path: "/login",
+      element: <Login />,
+    },
+    {
+      path: "/register",
+      element: <Register />,
+    },
     {
       path: "/",
       element: <Layout />,
@@ -32,6 +48,10 @@ const Approute = createBrowserRouter(
         {
           path: "financial",
           element: <Financial />,
+        },
+        {
+          path: "settings",
+          element: <Settings />,
         },
       ],
     },

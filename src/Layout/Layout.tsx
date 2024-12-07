@@ -1,7 +1,8 @@
 import Footer from "@/global/Footer";
 import Navbar from "@/global/Navbar";
 import Sidebar from "@/global/Sidebar";
-import { Outlet } from "react-router-dom";
+import ProtectedRoutes from "@/route/ProtectedRoutes";
+
 
 const Layout = () => {
   return (
@@ -9,7 +10,7 @@ const Layout = () => {
       <Sidebar />
       <div className="grow">
         <Navbar/>
-        <Outlet/>
+        <ProtectedRoutes/>
       </div>
     </div>
   );
