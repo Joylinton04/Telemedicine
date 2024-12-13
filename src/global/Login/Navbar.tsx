@@ -12,7 +12,7 @@ const Navbar = () => {
             <SquareActivity className='text-white' size={'40px'}/>
             <span className='uppercase text-lg'>Pluscare</span>
         </div>
-        <ul className='flex gap-6 font-medium'>
+        <ul className='flex gap-6 font-medium ssm:hidden mdd:text-sm'>
           <li className='scale-125'><a href="#home" className='text-green-500 font-bold'>Home</a></li>
           <li><a href="#services">Service</a></li>
           <li><a href="#about">About</a></li>

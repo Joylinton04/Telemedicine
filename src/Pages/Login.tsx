@@ -6,8 +6,9 @@ import { login } from "@/redux/loginSlice";
 
 const Login = () => {
   const isAuthenticated = useAppSelector((state) => state.isAuthenticated);
+  const hasAccount = useAppSelector((state) => state.hasAccount);
   const [isLoading, setIsLoading] = useState(false);
-  const [name, setName] = useState("");
+  const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
@@ -16,7 +17,7 @@ const Login = () => {
     e.preventDefault();
     setIsLoading(true);
     setTimeout(() => {
-      dispatch(login({ name: name, password: password }));
+      dispatch(login({ username: username, password: password }));
       setIsLoading(false);
     }, 2500);
   };
@@ -42,15 +43,15 @@ const Login = () => {
               htmlFor="email"
               className="text-sm font-medium text-gray-600"
             >
-              Full Name
+              Username
             </label>
             <div className="mt-1 relative">
               <input
                 id="email"
-                value={name}
+                value={username}
                 className="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-800"
                 placeholder="Enter your name"
-                onChange={(e) => setName(e.target.value)}
+                onChange={(e) => setUserName(e.target.value)}
                 required
               />
               <Mail
@@ -83,7 +84,7 @@ const Login = () => {
               />
             </div>
           </div>
-
+          {!hasAccount && <p className='text-red-500 font-bold'>Invalid details</p>}
           <button
             type="submit"
             className="w-full bg-blue-600 text-white py-2 rounded-md shadow-md hover:bg-blue-700 transition-all"

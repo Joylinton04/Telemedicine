@@ -39,14 +39,14 @@ const Carouselll = () => {
 
   return (
     <div className="flex justify-center items-center w-full mt-4 px-4">
-      <div className="w-full">
+      <div className="w-full ssm:w-[350px]">
         <Carousel
           opts={{
             align: "start",
           }}
           className="w-full py-2"
         >
-          <CarouselContent className="h-[350px] gap-6">
+          <CarouselContent className="h-[350px] gap-6 mdd:h-[450px]">
             {carouselInfo.map((car) => (
               <CarouselItem
                 className="basis-[35%] ssm:basis-[100%] bg-white h-full p-[30px] mdd:p-[20px] rounded-xl flex flex-col shadow-lg hover:shadow-2xl transition-shadow duration-300"

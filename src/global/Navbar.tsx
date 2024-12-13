@@ -1,7 +1,10 @@
+import { useAppSelector } from '@/redux/store';
 import { SquareActivity, User } from 'lucide-react';
 import React from 'react'
 
 const Navbar = () => {
+  const user = useAppSelector(state => state.currentUser)
+
   return (
     <div className='h-[70px] p-4 bg-white border-b border-gray-100 sticky top-0 z-20'>
       <div className='flex justify-between items-center'>
@@ -15,13 +18,12 @@ const Navbar = () => {
               <User/>
             </div>
             <div className="flex flex-col ">
-              <h1 className="text-maintext text-sm font-semibold ssm:text-xs">Dr. Adu Atakora</h1>
-              <p className="text-softText text-xs ssm:text-[9px]">atakora192@gmail.com</p>
+              <h1 className="text-maintext text-sm font-semibold ssm:text-xs">{user?.isDoctor? 'Dr': (user?.gender == 'Male'? 'Mr' : 'Mrs')}. {user?.Lastname}</h1>
+              <p className="text-softText text-xs ssm:text-[9px]">{user?.email}</p>
             </div>
           </div>
       </div>
     </div>
   )
 }
-
 export default Navbar;

@@ -107,15 +107,19 @@ body {
   border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
 }
 
-.wid {
-  width: 70%
+@media (max-width: 1100px) {
+  .widlimit {
+    width: 1024px;
+  }
+  .wid {
+    width: 90%;
+  }
 }
 
 @media (min-width: 1128px) {
   .widlimit {
     width: 1128px;
   }
-
   .wid {
     width: 80%;
   }

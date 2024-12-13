@@ -7,11 +7,7 @@ const Home = () => {
   return (
     <div className="p-4 pb-6 ssm:p-2">
       {/* h-[calc(100vh-70px)] */}
-      {user ? (
-        user?.role === "Doctor" && <DoctorsDashboard />
-      ) : (
-        <PatientDashboard />
-      )}
+      {user?.isDoctor? <DoctorsDashboard /> : <PatientDashboard/>}
     </div>
   );
 };

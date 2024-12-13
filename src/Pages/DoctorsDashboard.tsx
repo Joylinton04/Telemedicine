@@ -6,12 +6,15 @@ import { ArrowDownRight, ArrowUpRight, ChartNoAxesColumn, DollarSign, List, MapP
 import { columns } from "../Datatable/Column"
 import { DataTable } from "../Datatable/DataTable"
 import { data } from '@/Datatable/Data';
+import { useAppSelector } from '@/redux/store';
 
 const DoctorsDashboard = () => {
+  const user = useAppSelector(state => state.currentUser);
+
   return (
     <div className='flex flex-col h-full'>
     <div className='flex flex-col gap-1'>
-      <div className='font-bold text-2xl font-main3 ssm:text-lg'>👋🏼 Welcome Back, Dr. Adu Atakora!</div>
+      <div className='font-bold text-2xl font-main3 ssm:text-lg'>👋🏼 Welcome Back, Dr. {user?.Lastname}!</div>
       <div className='text-sm text-textSoft ssm:text-xs'>You have access to all the necessary tools and resources to manage your patient care.</div>
     </div>
 
