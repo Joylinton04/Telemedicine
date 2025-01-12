@@ -18,7 +18,7 @@ const Navbar = () => {
               <User/>
             </div>
             <div className="flex flex-col ">
-              <h1 className="text-maintext text-sm font-semibold ssm:text-xs">{user?.isDoctor? 'Dr': (user?.gender == 'Male'? 'Mr' : 'Mrs')}. {user?.Lastname}</h1>
+              <h1 className="text-maintext text-sm font-semibold ssm:text-xs">{user?.isDoctor? 'Dr': (user?.gender == 'Male'? 'Mr' : 'Mr')}. {user?.Lastname}</h1>
               <p className="text-softText text-xs ssm:text-[9px]">{user?.email}</p>
             </div>
           </div>

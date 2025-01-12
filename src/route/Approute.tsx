@@ -1,6 +1,7 @@
 import Layout from "@/Layout/Layout";
 import AllAppointments from "@/Pages/AllAppointments";
 import Appointments from "@/Pages/Appointments";
+import ChatSection from "@/Pages/ChatSection";
 import DoctorProfile from "@/Pages/DoctorProfile";
 import Financial from "@/Pages/Financial";
 import Home from "@/Pages/Home";
@@ -50,6 +51,10 @@ const Approute = createBrowserRouter(
         {
           path: "financial",
           element: <Financial />,
+        },
+        {
+          path: "/patient/:id/chat",
+          element: <ChatSection />,
         },
         {
           path: "settings",

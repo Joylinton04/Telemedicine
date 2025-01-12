@@ -3,17 +3,12 @@ import { data as data2 } from "@/Datatable/AppointmentData";
 import { useParams } from "react-router-dom";
 import {
   Activity,
-  Calendar,
-  Clock,
   Cross,
   Droplet,
   HeartPulse,
-  Ruler,
-  UserPlus,
   Weight,
   X,
 } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { useState } from "react";
 
 const Patient = () => {
@@ -57,6 +52,7 @@ const Patient = () => {
               className="mt-4 px-6 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg shadow-md transition-all"
               onClick={() => handleShowAlert()}
             >
+              {/* <Link to={`/patient/${patientData.id}/chat`}></Link> */}
               Initiate a Chat
             </button>
             <div></div>
