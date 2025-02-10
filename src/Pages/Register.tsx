@@ -46,7 +46,15 @@ const InputField = ({
   </FormItem>
 );
 
-const SelectField = ({ label, icon: Icon, field, options }:any) => (
+interface SelectFieldProps {
+  label: string;
+  icon?: any;
+  field: any;
+  options: { value: string; label: string }[];
+}
+
+
+const SelectField = ({ label, icon: Icon, field, options}:SelectFieldProps) => (
   <FormItem className="relative">
     <label className="text-sm font-medium text-gray-600">
       {label}
