@@ -1,5 +1,14 @@
 import { useState, useEffect } from "react";
-import { Mail, Lock, User, SquareMousePointer, PersonStanding, Workflow, Timer, Stethoscope } from "lucide-react";
+import {
+  Mail,
+  Lock,
+  User,
+  SquareMousePointer,
+  PersonStanding,
+  Workflow,
+  Timer,
+  Stethoscope,
+} from "lucide-react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -14,18 +23,16 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 
-const InputField = ({ 
-  label, 
-  icon: Icon, 
-  field, 
-  placeholder, 
+const InputField = ({
+  label,
+  icon: Icon,
+  field,
+  placeholder,
   type = "text",
-  className = "" 
-}:any) => (
+  className = "",
+}: any) => (
   <FormItem className="relative">
-    <label className="text-sm font-medium text-gray-600">
-      {label}
-    </label>
+    <label className="text-sm font-medium text-gray-600">{label}</label>
     <FormControl>
       <div className="relative group">
         <Input
@@ -53,12 +60,14 @@ interface SelectFieldProps {
   options: { value: string; label: string }[];
 }
 
-
-const SelectField = ({ label, icon: Icon, field, options}:SelectFieldProps) => (
+const SelectField = ({
+  label,
+  icon: Icon,
+  field,
+  options,
+}: SelectFieldProps) => (
   <FormItem className="relative">
-    <label className="text-sm font-medium text-gray-600">
-      {label}
-    </label>
+    <label className="text-sm font-medium text-gray-600">{label}</label>
     <FormControl>
       <div className="relative group">
         <select
@@ -113,7 +122,7 @@ const Register = () => {
 
   // Watch for role changes to show/hide doctor fields
   const role = form.watch("role");
-  
+
   useEffect(() => {
     setIsDoctor(role === "doctor");
   }, [role]);
@@ -140,6 +149,7 @@ const Register = () => {
             onSubmit={form.handleSubmit(handleSubmit)}
           >
             <div className="space-y-4">
+              ``
               {/* Basic Information */}
               <FormField
                 control={form.control}
@@ -153,7 +163,6 @@ const Register = () => {
                   />
                 )}
               />
-
               <FormField
                 control={form.control}
                 name="email"
@@ -167,7 +176,6 @@ const Register = () => {
                   />
                 )}
               />
-
               <FormField
                 control={form.control}
                 name="password"
@@ -181,7 +189,6 @@ const Register = () => {
                   />
                 )}
               />
-
               <div className="grid grid-cols-2 gap-4">
                 <FormField
                   control={form.control}
@@ -194,7 +201,7 @@ const Register = () => {
                       options={[
                         { value: "", label: "Select your role" },
                         { value: "patient", label: "Patient" },
-                        { value: "doctor", label: "Doctor" }
+                        { value: "doctor", label: "Doctor" },
                       ]}
                     />
                   )}
@@ -211,7 +218,7 @@ const Register = () => {
                       options={[
                         { value: "", label: "Select gender" },
                         { value: "male", label: "Male" },
-                        { value: "female", label: "Female" }
+                        { value: "female", label: "Female" },
                       ]}
                     />
                   )}
@@ -285,8 +292,8 @@ const Register = () => {
         <div className="mt-6 text-center text-sm text-gray-500">
           <p>
             Already have an account?{" "}
-            <a 
-              href="/login" 
+            <a
+              href="/login"
               className="text-blue-600 hover:text-blue-700 hover:underline transition-colors"
             >
               Log in here
