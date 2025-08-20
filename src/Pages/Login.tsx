@@ -8,8 +8,8 @@ const Login = () => {
   const isAuthenticated = useAppSelector((state) => state.isAuthenticated);
   const hasAccount = useAppSelector((state) => state.hasAccount);
   const [isLoading, setIsLoading] = useState(false);
-  const [username, setUserName] = useState("");
-  const [password, setPassword] = useState("");
+  const [username, setUserName] = useState("username");
+  const [password, setPassword] = useState("1234");
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
@@ -26,6 +26,10 @@ const Login = () => {
       navigate('/');
     }
   }, [isAuthenticated, navigate]); 
+
+  useEffect(() => {
+    alert('Username: username; Password: 1234');
+  },[])
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center px-4 font-main">

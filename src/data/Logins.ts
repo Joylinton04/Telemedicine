@@ -54,9 +54,9 @@ export const patients: user[] = [
 export const doctors:Doctors[] = [
     {
             id: '123',
-            password: '123',
+            password: '1234',
             photo: "/doctor.jpg",
-            username: "adujoy989",
+            username: "username",
             Firstname: "Joy",
             Lastname: "Adu Atakora",
             isDoctor: true,
